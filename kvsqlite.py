@@ -3,7 +3,7 @@ __author__ = "Feng-Ming Lin (Taiwan)"
 __copyright__ = "Copyright 2013"
 __credits__ = ['Feng-Ming Lin',]
 __license__ = "LGPL"
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __maintainer__ = "Feng-Ming Lin"
 __email__ = "fabianwind@hotmail.com"
 __status__ = "Developing"
@@ -53,7 +53,7 @@ class KVManager(object):
         except IntegrityError:
             print('column is not unique')
         except OperationalError:
-            print('table "{table}" already exists'.format(table=table))
+            print('table "{table}" with columns: "{c1}", "{c2}", "{c3}" is not exists'.format(table=table, c1=self.__c1 , c2=self.__c2, c3=self.__c3))
         except:
             print('SOME ERROR, Please check the manual of kvsqlite for correct usage')
         finally:
@@ -69,7 +69,7 @@ class KVManager(object):
         except IntegrityError:
             print('column is not unique')
         except OperationalError:
-            print('table "{table}" is not exists'.format(table=table))
+            print('table "{table}" with columns: "{c1}", "{c2}", "{c3}" is not exists'.format(table=table, c1=self.__c1 , c2=self.__c2, c3=self.__c3))
         finally:
             self.__close()
 
@@ -85,7 +85,7 @@ class KVManager(object):
         except ProgrammingError:
             print('Incorrect number of bindings supplied.')
         except OperationalError:
-            print('table "{table}" is not exists'.format(table=table))
+            print('table "{table}" with columns: "{c1}", "{c2}", "{c3}" is not exists'.format(table=table, c1=self.__c1 , c2=self.__c2, c3=self.__c3))
         except:
             print('SOME ERROR, Please check the manual of kvsqlite for correct usage')
         finally:
@@ -97,11 +97,10 @@ class KVManager(object):
             self.__init()
             self.__cur.executemany(delete_sql, data)
             self.__con.commit()
-            self.__close()
         except ProgrammingError:
             print('Incorrect number of bindings supplied.')
         except OperationalError:
-            print('table "{table}" is not exists'.format(table=table))
+            print('table "{table}" with columns: "{c1}", "{c2}", "{c3}" is not exists'.format(table=table, c1=self.__c1 , c2=self.__c2, c3=self.__c3))
         except:
             print('SOME ERROR, Please check the manual of kvsqlite for correct usage')
         finally:
