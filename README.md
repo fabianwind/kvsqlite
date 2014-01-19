@@ -3,7 +3,15 @@ kvsqlite
 
 A simple key-value sqlite database manager develop with Python language. Easy to use, simple code, and pure 100% Python.
 
+In several situation, the database might be simple as key-value schema. Author defined a flexible schema for developement. If follow the manual, you can simplely create a useful key-value database.
+
+The database schema with 4 columns, the first is id column which is auto inceasement columns by using statement:
+>"id" integer NOT NULL PRIMARY KEY
+
+The second to fourth columns you can define your own name (default is "function", "config", and "value")
+
 In order to easy to use, author considered the key-value database as a json or RESTful. We can "select" data from the database, and modify the data, and then "update" the data without any change. Just like "PUT" method of RESTful.
+
 
 ========
 
